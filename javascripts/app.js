@@ -1,3 +1,3 @@
 "use strict";
 
-var app = angular.module("SoftwareAdoptionDashboard", []); 
+var app = angular.module("SoftwareAdoptionDashboard", ["ngRoute", 'chart.js']); 
