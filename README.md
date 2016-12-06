@@ -1,1 +1,1 @@
-# Software-Adoption-Dashboard
+# Software Adoption Dashboard
