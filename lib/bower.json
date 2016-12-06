@@ -1,0 +1,17 @@
+{
+  "name": "q",
+  "description": "",
+  "main": "index.js",
+  "license": "ISC",
+  "homepage": "https://github.com/nss-evening-cohort-04/ng-contacts-alexsaber89",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "^1.5.9"
+  }
+}
