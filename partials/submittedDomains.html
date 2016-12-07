@@ -1,10 +1,10 @@
 <h1>Submitted Domains</h1>
 
 <div ng-repeat="domain in submittedDomains">
-  <a class="btn-floating btn-md red">
+  <a class="btn-floating btn-md red" ng-click="getMyCtrlScope().editDomainThenReloadDomains()">
     <i class="large material-icons">mode_edit</i>
   </a>
-  <a class="btn-floating btn-md red" ng-click="deleteDomainThenReloadDomains(domain.id)">
+  <a class="btn-floating btn-md red" ng-click="getMyCtrlScope().deleteDomainThenReloadDomains(domain.id)">
     <i class="large material-icons">delete</i>
   </a>
   <div>{{domain.domainName}}</div>
