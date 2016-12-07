@@ -1,1 +1,60 @@
-<h1>Auth</h1>
+<div class="row">
+  <div class="col s12">
+    <ul class="tabs">
+      <li class="tab col s3"><a class="active" ng-click="setLoginContainer()">Login</a></li>
+      <li class="tab col s3"><a ng-click="setRegisterContainer()">Register</a></li>
+    </ul>
+  </div>
+</div>
+
+<div ng-show="loginContainer" class="row">
+  <h3>Login</h3>
+  <form class="col s12">
+    <div class="row">
+      <div class="input-field col s3">
+        <input type="email" class="validate" ng-model="login.email">
+        <label for="email">Email</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s3">
+        <input type="password" class="validate" ng-model="login.password">
+        <label for="password">Password</label>
+      </div>
+    </div>
+    <button class="btn waves-effect waves-light" type="submit" name="action" ng-click="loginUser(login)">Login
+      <i class="material-icons right">send</i>
+    </button>
+    <button class="btn waves-effect waves-light" type="submit" name="action" ng-click="loginGoogleUser(login)">Login with Google
+      <i class="material-icons right">send</i>
+    </button>
+  </form>
+</div>
+
+<div ng-show="registerContainer">
+  <h3>Register</h3>
+  <form class="col s12">
+    <div class="row">
+      <div class="input-field col s3">
+        <input type="email" class="validate" ng-model="registration.email">
+        <label for="email">Email</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s3">
+        <input type="password" class="validate" ng-model="registration.password">
+        <label for="password">Password</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s3">
+        <input type="text" class="validate" ng-model="registration.username">
+        <label for="password">User Name</label>
+      </div>
+    </div>
+    <button class="btn waves-effect waves-light" type="submit" name="action" ng-click="registerUser(registration)">Register
+      <i class="material-icons right">send</i>
+    </button>
+  </form>
+</div>
+</div>

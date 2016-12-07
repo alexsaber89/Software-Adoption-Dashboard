@@ -39,7 +39,7 @@ app.config(function($routeProvider){
     controller: 'DashboardCtrl',
 		resolve: {isAuth}
   })
-  .when('/submitted', {
+  .when('/domains', {
     templateUrl: 'partials/submittedDomains.html',
     controller: 'SubmittedDomainsCtrl',
 		resolve: {isAuth}

@@ -4,9 +4,12 @@
     <meta charset="utf-8">
     <title>Software Adoption Dashboard</title>
     <link rel="stylesheet" type="text/css" href="/lib/node_modules/materialize-css/dist/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
   </head>
   <body ng-app="SoftwareAdoptionDashboard">
+
+    <div ng-include="'partials/navbar.html'"></div>
 
     <div ng-view></div>
 
@@ -22,6 +25,7 @@
     <script type="text/javascript" src="/javascripts/AppConfig.js"></script>
     <script type="text/javascript" src="/javascripts/factories/AuthFactory.js"></script>
     <script type="text/javascript" src="/javascripts/factories/UserFactory.js"></script>
+    <script type="text/javascript" src="/javascripts/controllers/NavCtrl.js"></script>
     <script type="text/javascript" src="/javascripts/controllers/AuthCtrl.js"></script>
     <script type="text/javascript" src="/javascripts/controllers/DashboardCtrl.js"></script>
     <script type="text/javascript" src="/javascripts/controllers/SubmittedDomainsCtrl.js"></script>

@@ -1,0 +1,50 @@
+{
+	"submitted_domains":{
+    "domain0":{
+      "domain":"@bestbuy.com",
+      "uid":"8ud4aCgkuCMUCaKIjRV9c5olzcc2"
+    },
+    "domain1":{
+      "domain":"@radioshack.net",
+      "uid":"8ud4aCgkuCMUCaKIjRV9c5olzcc2"
+    },
+    "domain2":{
+      "domain":"@wolterskluwer.com",
+      "uid":"XgeyhjgYkMhs6u6TC5QLbHyYPfq1"
+    },
+    "domain3":{
+      "domain":"@questlabs.biz",
+      "uid":"XgeyhjgYkMhs6u6TC5QLbHyYPfq1"
+    }
+  },
+	"user_accounts":{
+		"account0":{
+			"email": "john.pace@bestbuy.com"
+		},
+		"account1":{
+			"email": "will.grello@bestbuy.com"
+		},
+		"account2":{
+			"email": "jeff.probst@radioshack.net"
+		},
+		"account3":{
+			"email": "joe.gage@wolterskluwer.com"
+		},
+		"account4":{
+			"email": "paul.vogt@questlabs.biz"
+		},
+		"account5":{
+			"email": "jon.voight@wolterskluwer.com"
+		}
+	},
+	"users":{
+		"user0":{
+			"uid":"8ud4aCgkuCMUCaKIjRV9c5olzcc2",
+			"username":"Brad"
+		},
+		"user1":{
+			"uid": "XgeyhjgYkMhs6u6TC5QLbHyYPfq1",
+			"username":"Al"
+		}
+	}
+}
