@@ -1,19 +1,19 @@
 {
 	"submitted_domains":{
     "domain0":{
-      "domain":"@bestbuy.com",
+      "domainName":"@bestbuy.com",
       "uid":"8ud4aCgkuCMUCaKIjRV9c5olzcc2"
     },
     "domain1":{
-      "domain":"@radioshack.net",
+      "domainName":"@radioshack.net",
       "uid":"8ud4aCgkuCMUCaKIjRV9c5olzcc2"
     },
     "domain2":{
-      "domain":"@wolterskluwer.com",
+      "domainName":"@wolterskluwer.com",
       "uid":"XgeyhjgYkMhs6u6TC5QLbHyYPfq1"
     },
     "domain3":{
-      "domain":"@questlabs.biz",
+      "domainName":"@questlabs.biz",
       "uid":"XgeyhjgYkMhs6u6TC5QLbHyYPfq1"
     }
   },
