@@ -1,11 +1,13 @@
-<h1>Submitted Domains</h1>
+<h4>Submitted Domains</h4>
 
 <div ng-repeat="domain in submittedDomains">
-  <a class="btn-floating btn-md red" ng-click="getMyCtrlScope().editDomainThenReloadDomains()">
-    <i class="large material-icons">mode_edit</i>
-  </a>
-  <a class="btn-floating btn-md red" ng-click="getMyCtrlScope().deleteDomainThenReloadDomains(domain.id)">
-    <i class="large material-icons">delete</i>
-  </a>
-  <div>{{domain.domainName}}</div>
+  <div clas="row">
+    <a class="col s2 btn-floating btn-md" ng-click="getMyCtrlScope().editDomainThenReloadDomains()">
+      <i class="large material-icons">mode_edit</i>
+    </a>
+    <a class="col s2 btn-floating btn-md red" ng-click="getMyCtrlScope().deleteDomainThenReloadDomains(domain.id)">
+      <i class="large material-icons">delete</i>
+    </a>
+    <div class="col s10">{{domain.domainName}}</div>
+  </div>
 </div>
