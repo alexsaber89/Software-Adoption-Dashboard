@@ -1,7 +1,6 @@
 "use strict";
 
 app.controller("SubmittedDomainsCtrl", function($location, $scope, $rootScope, AuthFactory, UserFactory, DomainsFactory) {
-  console.log("SubmittedDomainsCtrl");
 
   $scope.getMyCtrlScope = function() {
     return $scope;
@@ -14,7 +13,6 @@ app.controller("SubmittedDomainsCtrl", function($location, $scope, $rootScope, A
   };
 
   $scope.deleteDomainThenReloadDomains = (domainId) => {
-    console.log("editDomainThenReloadDomains");
     DomainsFactory.deleteLoggedUserDomain(domainId).then(function(deleteResponse) {
       $scope.loadUserDomains();
     });
