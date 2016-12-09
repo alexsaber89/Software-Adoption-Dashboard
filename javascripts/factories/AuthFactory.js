@@ -1,6 +1,7 @@
 "use strict";
 
 app.factory("AuthFactory", function($q, $http, $rootScope, FIREBASE_CONFIG) {
+
   let currentUserData = null;
 
 //Firebase: Determine if user is authenticated.
@@ -22,10 +23,10 @@ app.factory("AuthFactory", function($q, $http, $rootScope, FIREBASE_CONFIG) {
   let authenticate = (credentials) => {
     return $q((resolve, reject) => {
       firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.password)
-        .then((authData) =>{
+        .then((authData) => {
           resolve(authData);
         })
-        .catch((error)=>{
+        .catch((error) => {
           reject(error);
         });
     });
@@ -35,10 +36,10 @@ app.factory("AuthFactory", function($q, $http, $rootScope, FIREBASE_CONFIG) {
   let registerWithEmail = (user) => {
     return $q((resolve, reject) => {
       firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
-        .then((authData) =>{
+        .then((authData) => {
           resolve(authData);
         })
-        .catch((error)=>{
+        .catch((error) => {
           reject(error);
         });
     });
@@ -54,7 +55,7 @@ app.factory("AuthFactory", function($q, $http, $rootScope, FIREBASE_CONFIG) {
           currentUserData = authData.user;
           console.log("currentUserData", currentUserData);
           resolve(currentUserData);
-        }).catch((error)=> {
+        }).catch((error) => {
           reject(error);
         });
     });

@@ -1,6 +1,7 @@
 "use strict";
 
 app.controller("DashboardCtrl", function($location, $scope, $rootScope, AuthFactory, UserFactory) {
+
   console.log("DashboardCtrl");
   $scope.labels = ["Download Sales", "In-Store Sales"];
   $scope.data = [300, 500];
@@ -23,4 +24,5 @@ app.controller("DashboardCtrl", function($location, $scope, $rootScope, AuthFact
   $scope.barData = [
     [28, 48, 40, 19, 86, 27, 90, 28, 48, 40, 19]
   ];
+  
 });
