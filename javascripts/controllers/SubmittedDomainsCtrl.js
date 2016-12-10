@@ -17,6 +17,9 @@ app.controller("SubmittedDomainsCtrl", function($location, $scope, $rootScope, A
 
   $scope.searchDomains = (domainName) => {
     $scope.displayDomainSubmitButton = false;
+    if ($scope.submittedDomains.length < 1) {
+      $scope.displayDomainSubmitButton = true;
+    }
     for (var i = 0; i < $scope.submittedDomains.length; i++) {
       if(domainName === $scope.submittedDomains[i].domainName) {
         $scope.displayDomainSubmitButton = false;
@@ -30,6 +33,7 @@ app.controller("SubmittedDomainsCtrl", function($location, $scope, $rootScope, A
   $scope.addNewDomain = (newDomain) => {
     DomainsFactory.addLoggedUserDomain($rootScope.user.uid, newDomain).then(function(addResponse) {
       $scope.loadUserDomains();
+      $scope.displayDomainSubmitButton = false;
     });
   };
 
