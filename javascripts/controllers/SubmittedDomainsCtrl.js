@@ -12,6 +12,16 @@ app.controller("SubmittedDomainsCtrl", function($location, $scope, $rootScope, A
     });
   };
 
+  $scope.searchDomains = (domainName) => {
+    DomainsFactory.getLoggedUserDomains($rootScope.user.uid).then(function(domains) {
+      domains.forEach(function(domain) {
+        if(domainName === domain.domainName) {
+          console.log("match!");
+        }
+      });
+    });
+  };
+
   $scope.deleteDomainThenReloadDomains = (domainId) => {
     DomainsFactory.deleteLoggedUserDomain(domainId).then(function(deleteResponse) {
       $scope.loadUserDomains();
