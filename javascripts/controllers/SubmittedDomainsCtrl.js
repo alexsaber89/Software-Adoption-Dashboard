@@ -27,6 +27,12 @@ app.controller("SubmittedDomainsCtrl", function($location, $scope, $rootScope, A
     }
   };
 
+  $scope.addNewDomain = (newDomain) => {
+    DomainsFactory.addLoggedUserDomain($rootScope.user.uid, newDomain).then(function(addResponse) {
+      $scope.loadUserDomains();
+    });
+  };
+
   $scope.deleteDomainThenReloadDomains = (domainId) => {
     DomainsFactory.deleteLoggedUserDomain(domainId).then(function(deleteResponse) {
       $scope.loadUserDomains();
