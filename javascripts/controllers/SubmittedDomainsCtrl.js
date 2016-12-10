@@ -3,6 +3,7 @@
 app.controller("SubmittedDomainsCtrl", function($location, $scope, $rootScope, AuthFactory, UserFactory, DomainsFactory) {
 
   $scope.displayDomainSubmitButton = false;
+  $scope.displayDomainEditButton = false;
   $scope.submittedDomains = [];
 
   $scope.getMyCtrlScope = function() {
@@ -33,8 +34,14 @@ app.controller("SubmittedDomainsCtrl", function($location, $scope, $rootScope, A
   $scope.addNewDomain = (newDomain) => {
     DomainsFactory.addLoggedUserDomain($rootScope.user.uid, newDomain).then(function(addResponse) {
       $scope.loadUserDomains();
+      $scope.domainName = "";
+      $("#domainInput").focus();
       $scope.displayDomainSubmitButton = false;
     });
+  };
+
+  $scope.editDomainThenReloadDomains = (editedDomain) => {
+    console.log("editDomainThenReloadDomains: ", editedDomain);
   };
 
   $scope.deleteDomainThenReloadDomains = (domainId) => {
@@ -43,8 +50,11 @@ app.controller("SubmittedDomainsCtrl", function($location, $scope, $rootScope, A
     });
   };
 
-  $scope.editDomainThenReloadDomains = () => {
-    console.log("editDomainThenReloadDomains");
+  $scope.editDomain = (editedDomainId) => {
+    console.log("editedDomainId: ", editedDomainId);
+    $scope.displayDomainSubmitButton = false;
+    $scope.displayDomainEditButton = true;
+    $("#domainInput").focus();
   };
 
   $scope.loadUserDomains();
