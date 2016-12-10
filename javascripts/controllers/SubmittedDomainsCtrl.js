@@ -2,6 +2,9 @@
 
 app.controller("SubmittedDomainsCtrl", function($location, $scope, $rootScope, AuthFactory, UserFactory, DomainsFactory) {
 
+  $scope.displayDomainSubmitButton = false;
+  $scope.submittedDomains = [];
+
   $scope.getMyCtrlScope = function() {
     return $scope;
   };
@@ -13,13 +16,15 @@ app.controller("SubmittedDomainsCtrl", function($location, $scope, $rootScope, A
   };
 
   $scope.searchDomains = (domainName) => {
-    DomainsFactory.getLoggedUserDomains($rootScope.user.uid).then(function(domains) {
-      domains.forEach(function(domain) {
-        if(domainName === domain.domainName) {
-          console.log("match!");
-        }
-      });
-    });
+    $scope.displayDomainSubmitButton = false;
+    for (var i = 0; i < $scope.submittedDomains.length; i++) {
+      if(domainName === $scope.submittedDomains[i].domainName) {
+        $scope.displayDomainSubmitButton = false;
+        break;
+      } else {
+        $scope.displayDomainSubmitButton = true;
+      }
+    }
   };
 
   $scope.deleteDomainThenReloadDomains = (domainId) => {
