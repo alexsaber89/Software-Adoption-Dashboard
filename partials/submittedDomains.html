@@ -1,15 +1,21 @@
 <h4>{{user.username}}'s Submitted Domains</h4>
 
 <div class="row">
-  <div class="input-field col s3">
+  <div class="input-field col s3" ng-show="displayDomainInput">
     <input id="domainInput" type="text" class="validate" ng-keyup="searchDomains(domainName)" ng-model="domainName" required>
     <label for="text">Enter Domain Name</label>
+  </div>
+  <div class="input-field col s3" ng-show="displayDomainEditInput">
+    <input id="domainEditInput" type="text" class="validate" ng-keyup="searchDomainsThenEditDomain(domainName)" ng-model="domainName" required>
+    <label for="text">Edit Domain Name</label>
   </div>
   <button class="btn waves-effect waves-light" type="submit" name="action" ng-show="displayDomainSubmitButton" ng-click="addNewDomain(domainName)">Submit!
     <i class="material-icons right">send</i>
   </button>
   <button class="btn waves-effect waves-light" type="submit" name="action" ng-show="displayDomainEditButton" ng-click="editDomainThenReloadDomains(domainName)">Edit!
     <i class="material-icons right">send</i>
+  </button>
+  <button class="btn waves-effect waves-light" type="submit" name="action" ng-show="displayDomainCancelEditButton" ng-click="cancelDomainEdit()">Cancel
   </button>
 </div>
 

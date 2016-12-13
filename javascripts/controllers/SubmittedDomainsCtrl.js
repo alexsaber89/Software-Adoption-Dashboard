@@ -2,8 +2,11 @@
 
 app.controller("SubmittedDomainsCtrl", function($location, $scope, $rootScope, AuthFactory, UserFactory, DomainsFactory) {
 
+  $scope.displayDomainInput = true;
+  $scope.displayDomainEditInput = false;
   $scope.displayDomainSubmitButton = false;
   $scope.displayDomainEditButton = false;
+  $scope.displayDomainCancelEditButton = false;
   $scope.submittedDomains = [];
 
   $scope.getMyCtrlScope = function() {
@@ -40,6 +43,17 @@ app.controller("SubmittedDomainsCtrl", function($location, $scope, $rootScope, A
     });
   };
 
+  $scope.searchDomainsThenEditDomain = (domainName) => {
+    for (var i = 0; i < $scope.submittedDomains.length; i++) {
+      if(domainName === $scope.submittedDomains[i].domainName) {
+        $scope.displayDomainEditButton = false;
+        break;
+      } else {
+        $scope.displayDomainEditButton = true;
+      }
+    }
+  };
+
   $scope.editDomainThenReloadDomains = (editedDomain) => {
     console.log("editDomainThenReloadDomains: ", editedDomain);
   };
@@ -52,8 +66,22 @@ app.controller("SubmittedDomainsCtrl", function($location, $scope, $rootScope, A
 
   $scope.editDomain = (editedDomainId) => {
     console.log("editedDomainId: ", editedDomainId);
+    $scope.displayDomainInput = false;
     $scope.displayDomainSubmitButton = false;
     $scope.displayDomainEditButton = true;
+    $scope.displayDomainCancelEditButton = true;
+    $scope.displayDomainEditInput = true;
+    $("#domainEditInput").focus();
+  };
+
+  $scope.cancelDomainEdit = () => {
+    console.log("cancelDomainEdit");
+    $scope.displayDomainEditInput = false;
+    $scope.displayDomainEditButton = false;
+    $scope.displayDomainCancelEditButton = false;
+    $scope.displayDomainInput = true;
+    $scope.displayDomainSubmitButton = true;
+    $scope.domainName = "";
     $("#domainInput").focus();
   };
 
