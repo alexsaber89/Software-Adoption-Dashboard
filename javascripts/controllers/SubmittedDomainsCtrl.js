@@ -8,6 +8,7 @@ app.controller("SubmittedDomainsCtrl", function($location, $scope, $rootScope, A
   $scope.displayDomainEditButton = false;
   $scope.displayDomainCancelEditButton = false;
   $scope.submittedDomains = [];
+  $scope.domainIdToEdit = "";
 
   $scope.getMyCtrlScope = function() {
     return $scope;
@@ -54,8 +55,13 @@ app.controller("SubmittedDomainsCtrl", function($location, $scope, $rootScope, A
     }
   };
 
-  $scope.editDomainThenReloadDomains = (editedDomain) => {
-    console.log("editDomainThenReloadDomains: ", editedDomain);
+  $scope.editDomainThenReloadDomains = (editedDomainName) => {
+    DomainsFactory.editLoggedUserDomain($scope.domainIdToEdit, $rootScope.user.uid, editedDomainName).then(function(editedResponse) {
+      $scope.loadUserDomains();
+      $scope.domainName = "";
+      $("#domainInput").focus();
+      $scope.displayDomainSubmitButton = false;
+    });
   };
 
   $scope.deleteDomainThenReloadDomains = (domainId) => {
@@ -64,7 +70,9 @@ app.controller("SubmittedDomainsCtrl", function($location, $scope, $rootScope, A
     });
   };
 
-  $scope.editDomain = (editedDomainId) => {
+  $scope.showEditInputAndButtons = (editedDomainId) => {
+    $scope.domainName = "";
+    $scope.domainIdToEdit = "";
     console.log("editedDomainId: ", editedDomainId);
     $scope.displayDomainInput = false;
     $scope.displayDomainSubmitButton = false;
@@ -72,6 +80,7 @@ app.controller("SubmittedDomainsCtrl", function($location, $scope, $rootScope, A
     $scope.displayDomainCancelEditButton = true;
     $scope.displayDomainEditInput = true;
     $("#domainEditInput").focus();
+    $scope.domainIdToEdit = editedDomainId;
   };
 
   $scope.cancelDomainEdit = () => {

@@ -19,9 +19,43 @@ app.factory("DomainsFactory", function($q, $http, $rootScope, FIREBASE_CONFIG) {
     });
   };
 
+  // var getSingleUserDomain = function(domainId){
+  //   return $q((resolve, reject) => {
+  //     $http.get(`${FIREBASE_CONFIG.databaseURL}/submitted_domains/${domainId}.json`)
+  //      .success( (response) => {
+  //        console.log("success response ", response);
+  //       let singleDomain = [];
+  //       Object.keys(response).forEach((key) => {
+  //         response[key].id = key;
+  //         singleDomain.push(response[key]);
+  //       });
+  //       resolve(singleDomain);
+  //      })
+  //      .error( (errorResponse) => {
+  //       reject(errorResponse);
+  //      });
+  //   });
+  // };
+
   var addLoggedUserDomain = function(userId, domainName) {
     return $q((resolve, reject)=>{
       $http.post(`${FIREBASE_CONFIG.databaseURL}/submitted_domains.json`,
+      JSON.stringify({
+        "uid" : userId,
+        "domainName" : domainName
+      }))
+       .success((response) => {
+        resolve(response);
+       })
+       .error((errorResponse) => {
+        reject(errorResponse);
+       });
+    });
+  };
+
+  var editLoggedUserDomain = function(domainId, userId, domainName) {
+    return $q((resolve, reject)=>{
+      $http.put(`${FIREBASE_CONFIG.databaseURL}/submitted_domains/${domainId}.json`,
       JSON.stringify({
         "uid" : userId,
         "domainName" : domainName
@@ -47,5 +81,5 @@ app.factory("DomainsFactory", function($q, $http, $rootScope, FIREBASE_CONFIG) {
     });
   };
 
-  return {getLoggedUserDomains, deleteLoggedUserDomain, addLoggedUserDomain};
+  return {getLoggedUserDomains, addLoggedUserDomain, editLoggedUserDomain, deleteLoggedUserDomain};
 });

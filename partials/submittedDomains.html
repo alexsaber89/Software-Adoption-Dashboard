@@ -12,7 +12,7 @@
   <button class="btn waves-effect waves-light" type="submit" name="action" ng-show="displayDomainSubmitButton" ng-click="addNewDomain(domainName)">Submit!
     <i class="material-icons right">send</i>
   </button>
-  <button class="btn waves-effect waves-light" type="submit" name="action" ng-show="displayDomainEditButton" ng-click="editDomainThenReloadDomains(domainName)">Edit!
+  <button class="btn waves-effect waves-light" type="submit" name="action" ng-show="displayDomainEditButton" ng-click="editDomainThenReloadDomains(domainName, domain.id)">Edit!
     <i class="material-icons right">send</i>
   </button>
   <button class="btn waves-effect waves-light" type="submit" name="action" ng-show="displayDomainCancelEditButton" ng-click="cancelDomainEdit()">Cancel
@@ -23,7 +23,7 @@
   <div ng-repeat="domain in submittedDomains">
     <div class="row">
       <div class="col s12">
-        <a class="btn-floating btn-md" ng-click="getMyCtrlScope().editDomain(domain.id)">
+        <a class="btn-floating btn-md" ng-click="getMyCtrlScope().showEditInputAndButtons(domain.id)">
           <i class="large material-icons">mode_edit</i>
         </a>
         <a class="btn-floating btn-md red" ng-click="getMyCtrlScope().deleteDomainThenReloadDomains(domain.id)">
