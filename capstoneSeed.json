@@ -1,0 +1,58 @@
+{
+	"submitted_domains":{
+    "domain0":{
+      "domainName":"@bestbuy.com",
+      "uid":"XIXbd8Q1D6OEyc3M1HCAJntP7992"
+    },
+    "domain1":{
+      "domainName":"@radioshack.net",
+      "uid":"8ud4aCgkuCMUCaKIjRV9c5olzcc2"
+    },
+    "domain2":{
+      "domainName":"@wolterskluwer.com",
+      "uid":"XIXbd8Q1D6OEyc3M1HCAJntP7992"
+    },
+    "domain3":{
+      "domainName":"@questlabs.biz",
+      "uid":"XgeyhjgYkMhs6u6TC5QLbHyYPfq1"
+    },
+    "domain4":{
+      "domainName":"@johnspizza.com",
+      "uid":"XIXbd8Q1D6OEyc3M1HCAJntP7992"
+    },
+    "domain5":{
+      "domainName":"@zoeskitchen.com",
+      "uid":"XIXbd8Q1D6OEyc3M1HCAJntP7992"
+    }
+  },
+	"user_accounts":{
+		"account0":{
+			"email": "john.pace@bestbuy.com"
+		},
+		"account1":{
+			"email": "will.grello@bestbuy.com"
+		},
+		"account2":{
+			"email": "jeff.probst@radioshack.net"
+		},
+		"account3":{
+			"email": "joe.gage@wolterskluwer.com"
+		},
+		"account4":{
+			"email": "paul.vogt@questlabs.biz"
+		},
+		"account5":{
+			"email": "jon.voight@wolterskluwer.com"
+		}
+	},
+	"users":{
+		"user0":{
+			"uid":"8ud4aCgkuCMUCaKIjRV9c5olzcc2",
+			"username":"Brad"
+		},
+		"user1":{
+			"uid": "XgeyhjgYkMhs6u6TC5QLbHyYPfq1",
+			"username":"Al"
+		}
+	}
+}
