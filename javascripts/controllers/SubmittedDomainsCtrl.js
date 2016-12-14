@@ -61,6 +61,7 @@ app.controller("SubmittedDomainsCtrl", function($location, $scope, $rootScope, A
       $scope.domainName = "";
       $("#domainInput").focus();
       $scope.displayDomainSubmitButton = false;
+      $scope.cancelDomainEdit();
     });
   };
 

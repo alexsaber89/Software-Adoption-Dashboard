@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("AuthCtrl", function($location, $scope, $rootScope, AuthFactory, UserFactory) {
+app.controller("AuthCtrl", function($location, $scope, $rootScope, AuthFactory, UserFactory, DashboardFactory) {
 
 	$scope.loginContainer = true;
 	$scope.registerContainer = false;
@@ -42,7 +42,20 @@ app.controller("AuthCtrl", function($location, $scope, $rootScope, AuthFactory, 
 			};
 			$scope.login = {};
 			$scope.register = {};
-			return UserFactory.addUser($rootScope.user);
+			DashboardFactory.getUserNames().then(function(users) {
+				console.log("loginGoogleUser", users);
+				let googleUserExistsInFirebase = false;
+				for (var i = 0; i < users.length; i++) {
+					if (users[i].uid === $rootScope.user.uid) {
+						console.log("i already exist in Firebase user table!");
+						googleUserExistsInFirebase = true;
+						break;
+					}
+				}
+				if (!googleUserExistsInFirebase) {
+					UserFactory.addUser($rootScope.user);
+				}
+			});
 		}).then((logGoogleComplete) => {
 			$location.url('/dashboard');
 			console.log("logGoogleComplete", logGoogleComplete);
