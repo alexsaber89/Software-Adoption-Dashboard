@@ -26,7 +26,6 @@ app.controller("AuthCtrl", function($location, $scope, $rootScope, AuthFactory, 
 			console.log("loginResponse", loginResponse);
 			return UserFactory.getUser(loginResponse.uid);
 		}).then((userCreds) => {
-			console.log("userCreds", userCreds);
 			$rootScope.user = userCreds;
 			$scope.login = {};
 			$scope.register = {};
@@ -43,8 +42,9 @@ app.controller("AuthCtrl", function($location, $scope, $rootScope, AuthFactory, 
 			};
 			$scope.login = {};
 			$scope.register = {};
-			$location.url('/dashboard');
+			return UserFactory.addUser($rootScope.user);
 		}).then((logGoogleComplete) => {
+			$location.url('/dashboard');
 			console.log("logGoogleComplete", logGoogleComplete);
 		});
 	};
