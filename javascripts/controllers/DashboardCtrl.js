@@ -2,8 +2,15 @@
 
 app.controller("DashboardCtrl", function($location, $scope, $rootScope, AuthFactory, UserFactory, DashboardFactory) {
 
-  $scope.allActiveUserEmails = [];
-  $scope.loggedInUserSubmittedDomains = "";
+  $scope.getAllActiveUserEmails = () => {
+    $scope.allActiveUserEmails = [];
+    DashboardFactory.getAllActiveUsers().then(function(activeUserObjectArray) {
+      activeUserObjectArray.forEach(function(activeUserObject) {
+        $scope.allActiveUserEmails.push(activeUserObject.email);
+      });
+      console.log("allActiveUserEmails", $scope.allActiveUserEmails);
+    });
+  };
 
   //Doughnut Chart - Logged in Sales Rep's Submitted Domains
   $scope.loggedInUserSubmittedDomainLabels = ["Submitted Domains", "Domains till Quota"];
@@ -13,15 +20,6 @@ app.controller("DashboardCtrl", function($location, $scope, $rootScope, AuthFact
     $scope.submittedDomainsQuota = 20;
     $scope.loggedInUserNumberOfSubmittedDomains.push($scope.loggedInUserSubmittedDomains.length);
     $scope.loggedInUserNumberOfSubmittedDomains.push($scope.submittedDomainsQuota - $scope.loggedInUserSubmittedDomains.length);
-  };
-
-  $scope.getAllActiveUserEmails = () => {
-    DashboardFactory.getAllActiveUsers().then(function(activeUserObjectArray) {
-      activeUserObjectArray.forEach(function(activeUserObject) {
-        $scope.allActiveUserEmails.push(activeUserObject.email);
-      });
-      console.log("allActiveUserEmails", $scope.allActiveUserEmails);
-    });
   };
 
   //Doughnut Chart - Logged in Sales Rep's Active Users
