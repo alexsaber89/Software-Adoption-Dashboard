@@ -35,7 +35,6 @@ app.controller("AuthCtrl", function($location, $scope, $rootScope, AuthFactory, 
 
 	$scope.loginGoogleUser = () => {
 		AuthFactory.authenticateGoogle().then((googleResponse) => {
-			console.log("googleResponse", googleResponse);
 			$rootScope.user = {
 				uid: googleResponse.uid,
 				username: googleResponse.displayName
@@ -43,7 +42,6 @@ app.controller("AuthCtrl", function($location, $scope, $rootScope, AuthFactory, 
 			$scope.login = {};
 			$scope.register = {};
 			DashboardFactory.getUserNames().then(function(users) {
-				console.log("loginGoogleUser", users);
 				let googleUserExistsInFirebase = false;
 				for (var i = 0; i < users.length; i++) {
 					if (users[i].uid === $rootScope.user.uid) {
@@ -53,12 +51,13 @@ app.controller("AuthCtrl", function($location, $scope, $rootScope, AuthFactory, 
 					}
 				}
 				if (!googleUserExistsInFirebase) {
-					UserFactory.addUser($rootScope.user);
+					UserFactory.addUser($rootScope.user).then(function(addResponse) {
+						$location.url('/dashboard');
+					});
+				} else {
+					$location.url('/dashboard');
 				}
 			});
-		}).then((logGoogleComplete) => {
-			$location.url('/dashboard');
-			console.log("logGoogleComplete", logGoogleComplete);
 		});
 	};
 
