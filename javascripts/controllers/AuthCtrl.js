@@ -23,7 +23,6 @@ app.controller("AuthCtrl", function($location, $scope, $rootScope, AuthFactory, 
 
 	let logMeIn = (userLoginInfo) => {
 		AuthFactory.authenticate(userLoginInfo).then((loginResponse) => {
-			console.log("loginResponse", loginResponse);
 			return UserFactory.getUser(loginResponse.uid);
 		}).then((userCreds) => {
 			$rootScope.user = userCreds;
@@ -45,7 +44,6 @@ app.controller("AuthCtrl", function($location, $scope, $rootScope, AuthFactory, 
 				let googleUserExistsInFirebase = false;
 				for (var i = 0; i < users.length; i++) {
 					if (users[i].uid === $rootScope.user.uid) {
-						console.log("i already exist in Firebase user table!");
 						googleUserExistsInFirebase = true;
 						break;
 					}
@@ -62,13 +60,10 @@ app.controller("AuthCtrl", function($location, $scope, $rootScope, AuthFactory, 
 	};
 
 	$scope.registerUser = function(registerNewUser) {
-		console.log("registerNewUser", registerNewUser);
 		AuthFactory.registerWithEmail(registerNewUser).then((registerResponse) => {
-			console.log("registerResponse", registerResponse);
 			registerNewUser.uid = registerResponse.uid;
 			return UserFactory.addUser(registerNewUser);
 		}).then((registerComplete) => {
-			console.log("registerComplete", registerComplete);
 			logMeIn(registerNewUser);
 		});
 	};
