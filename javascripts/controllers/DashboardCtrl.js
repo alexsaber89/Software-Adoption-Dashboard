@@ -3,17 +3,17 @@
 app.controller("DashboardCtrl", function($q, $location, $scope, $rootScope, AuthFactory, UserFactory, DashboardFactory) {
   //**Below is attempt #3!**
 
-  let getAllActiveUserEmailAddressesCallback = function(value){
+  let getAllActiveUserEmailAddressesCallback = function(value) {
     $scope.allActiveUserEmailAddresses = value;
     return value;
   };
 
-  let getUserObjectsArrayCallback = function(value){
+  let getUserObjectsArrayCallback = function(value) {
     $scope.userObjectsArray = value;
     return value;
   };
 
-  let getLoggedUserDomainsCallback = function(value){
+  let getLoggedUserDomainsCallback = function(value) {
     $scope.loggedInUserDomains = value;
     return value;
   };
