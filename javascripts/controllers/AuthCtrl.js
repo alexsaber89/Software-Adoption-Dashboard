@@ -40,7 +40,7 @@ app.controller("AuthCtrl", function($location, $scope, $rootScope, AuthFactory, 
 			};
 			$scope.login = {};
 			$scope.register = {};
-			DashboardFactory.getUserNames().then(function(users) {
+			DashboardFactory.getUserObjectsArray().then(function(users) {
 				let googleUserExistsInFirebase = false;
 				for (var i = 0; i < users.length; i++) {
 					if (users[i].uid === $rootScope.user.uid) {

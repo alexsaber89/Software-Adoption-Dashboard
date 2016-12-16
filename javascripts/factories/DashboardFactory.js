@@ -1,8 +1,8 @@
 "use strict";
 
-app.factory("DashboardFactory", function($q, $http, $rootScope, FIREBASE_CONFIG) {
+app.factory("DashboardFactory", function($q, $http, FIREBASE_CONFIG) {
 
-  var getUserNames = function() {
+  var getUserObjectsArray = function() {
     return $q((resolve, reject) => {
       $http.get(`${FIREBASE_CONFIG.databaseURL}/users.json`)
       .success((response) => {
@@ -36,16 +36,20 @@ app.factory("DashboardFactory", function($q, $http, $rootScope, FIREBASE_CONFIG)
     });
   };
 
-  var getAllActiveUsers = function() {
+  var getAllActiveUserEmailAddresses = function() {
     return $q((resolve, reject) => {
       $http.get(`${FIREBASE_CONFIG.databaseURL}/user_accounts.json`)
       .success((response) => {
-       let allActiveUsers = [];
+       let allActiveUserEmailObjects = [];
+       let allActiveUserEmailAddresses = [];
        Object.keys(response).forEach((key) => {
          response[key].id = key;
-         allActiveUsers.push(response[key]);
+         allActiveUserEmailObjects.push(response[key]);
        });
-       resolve(allActiveUsers);
+       allActiveUserEmailObjects.forEach((emailObject) => {
+         allActiveUserEmailAddresses.push(emailObject.email);
+       });
+       resolve(allActiveUserEmailAddresses);
         })
        .error((errorResponse) => {
         reject(errorResponse);
@@ -53,5 +57,5 @@ app.factory("DashboardFactory", function($q, $http, $rootScope, FIREBASE_CONFIG)
     });
   };
 
-  return {getUserNames, getLoggedUserDomains, getAllActiveUsers};
+  return {getUserObjectsArray, getLoggedUserDomains, getAllActiveUserEmailAddresses};
 });
