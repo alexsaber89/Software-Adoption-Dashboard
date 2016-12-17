@@ -18,6 +18,8 @@ app.controller("DashboardCtrl", function($q, $location, $scope, $rootScope, Auth
     return value;
   };
 
+  $scope.options = {tooltipCaretSize: 0};
+
   $scope.fromThen = $q.all([
     DashboardFactory.getAllActiveUserEmailAddresses().then(getAllActiveUserEmailAddressesCallback),
     DashboardFactory.getUserObjectsArray().then(getUserObjectsArrayCallback),
@@ -28,6 +30,7 @@ app.controller("DashboardCtrl", function($q, $location, $scope, $rootScope, Auth
     $scope.loggedInUserActiveUsersWrapperArray = [];
     $scope.barData = [];
     $scope.barLabels = [];
+    $scope.barSeries = ['Active Users'];
     $scope.salesCenterActiveUserQuota = 100;
     $scope.loggedInUserActiveUserQuota = 40;
     let totalNumberOfActiveUsers = [];
