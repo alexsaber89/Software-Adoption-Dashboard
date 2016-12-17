@@ -18,7 +18,6 @@ app.run(function($rootScope, $location, AuthFactory, FIREBASE_CONFIG) {
 		if (currRoute.originalPath) {
 			appTo = currRoute.originalPath.indexOf('/auth') !== -1;
 		}
-		console.log("appTo", appTo);
 		if (!appTo && !logged) {
 			event.preventDefault();
 			$location.path('/auth');

@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("AuthCtrl", function($location, $scope, $rootScope, AuthFactory, UserFactory) {
+app.controller("AuthCtrl", function($location, $scope, $rootScope, AuthFactory, UserFactory, DashboardFactory) {
 
 	$scope.loginContainer = true;
 	$scope.registerContainer = false;
@@ -23,10 +23,8 @@ app.controller("AuthCtrl", function($location, $scope, $rootScope, AuthFactory, 
 
 	let logMeIn = (userLoginInfo) => {
 		AuthFactory.authenticate(userLoginInfo).then((loginResponse) => {
-			console.log("loginResponse", loginResponse);
 			return UserFactory.getUser(loginResponse.uid);
 		}).then((userCreds) => {
-			console.log("userCreds", userCreds);
 			$rootScope.user = userCreds;
 			$scope.login = {};
 			$scope.register = {};
@@ -36,27 +34,36 @@ app.controller("AuthCtrl", function($location, $scope, $rootScope, AuthFactory, 
 
 	$scope.loginGoogleUser = () => {
 		AuthFactory.authenticateGoogle().then((googleResponse) => {
-			console.log("googleResponse", googleResponse);
 			$rootScope.user = {
 				uid: googleResponse.uid,
 				username: googleResponse.displayName
 			};
 			$scope.login = {};
 			$scope.register = {};
-			$location.url('/dashboard');
-		}).then((logGoogleComplete) => {
-			console.log("logGoogleComplete", logGoogleComplete);
+			DashboardFactory.getUserObjectsArray().then(function(users) {
+				let googleUserExistsInFirebase = false;
+				for (var i = 0; i < users.length; i++) {
+					if (users[i].uid === $rootScope.user.uid) {
+						googleUserExistsInFirebase = true;
+						break;
+					}
+				}
+				if (!googleUserExistsInFirebase) {
+					UserFactory.addUser($rootScope.user).then(function(addResponse) {
+						$location.url('/dashboard');
+					});
+				} else {
+					$location.url('/dashboard');
+				}
+			});
 		});
 	};
 
 	$scope.registerUser = function(registerNewUser) {
-		console.log("registerNewUser", registerNewUser);
 		AuthFactory.registerWithEmail(registerNewUser).then((registerResponse) => {
-			console.log("registerResponse", registerResponse);
 			registerNewUser.uid = registerResponse.uid;
 			return UserFactory.addUser(registerNewUser);
 		}).then((registerComplete) => {
-			console.log("registerComplete", registerComplete);
 			logMeIn(registerNewUser);
 		});
 	};
