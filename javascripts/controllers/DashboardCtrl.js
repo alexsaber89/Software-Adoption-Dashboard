@@ -18,14 +18,6 @@ app.controller("DashboardCtrl", function($q, $location, $scope, $rootScope, Auth
     return value;
   };
 
-  $scope.chart_options = {
-    tooltipTemplate: function(label) {
-      return label.label + ': ' + label.value;
-    }
-  };
-
-  $scope.options = {tooltipCaretSize: 0};
-
   $scope.fromThen = $q.all([
     DashboardFactory.getAllActiveUserEmailAddresses().then(getAllActiveUserEmailAddressesCallback),
     DashboardFactory.getUserObjectsArray().then(getUserObjectsArrayCallback),
@@ -80,15 +72,6 @@ app.controller("DashboardCtrl", function($q, $location, $scope, $rootScope, Auth
       });
     });
     $scope.barDataWrapperArray.push($scope.barData);
-
-
-
-
-
-
-    console.log("$scope.allActiveUserEmailAddresses", $scope.allActiveUserEmailAddresses);
-
-    console.log("$scope.getUserObjectsArray", $scope.getUserObjectsArray);
 
   //Doughnut Chart - Logged in Sales Rep's Submitted Domains
     console.log("$scope.loggedInUserDomains.length", $scope.loggedInUserDomains.length);
