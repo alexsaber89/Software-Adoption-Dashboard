@@ -25,8 +25,12 @@ app.controller("DashboardCtrl", function($q, $location, $scope, $rootScope, Auth
   ])
   .then(function(values) {
     $scope.barDataWrapperArray = [];
+    $scope.loggedInUserActiveUsersWrapperArray = [];
     $scope.barData = [];
     $scope.barLabels = [];
+    $scope.salesCenterActiveUserQuota = 100;
+    $scope.loggedInUserActiveUserQuota = 40;
+    let totalNumberOfActiveUsers = [];
     $scope.userObjectsArray.forEach(function(userObject) {
       //Get Submitted Domains for each Registered User
       DashboardFactory.getLoggedUserDomains(userObject.uid).then(function(submittedDomains) {
@@ -34,6 +38,7 @@ app.controller("DashboardCtrl", function($q, $location, $scope, $rootScope, Auth
         let loggedInActiveUserQuota = 60;
         let afterAtSign;
         let numberOfActiveUsers = 0;
+
         submittedDomains.forEach(function(submittedDomain) {
           $scope.allActiveUserEmailAddresses.forEach(function(activeUserEmail) {
             afterAtSign = activeUserEmail.substr(activeUserEmail.indexOf("@"));
@@ -45,10 +50,32 @@ app.controller("DashboardCtrl", function($q, $location, $scope, $rootScope, Auth
         });
         console.log("numberOfActiveUsers", numberOfActiveUsers);
         $scope.barData.push(numberOfActiveUsers);
+        totalNumberOfActiveUsers.push(numberOfActiveUsers);
+        if (userObject.uid === $rootScope.user.uid) {
+          $scope.loggedInUserActiveUsersWrapperArray.push(numberOfActiveUsers);
+          $scope.loggedInUserActiveUsersWrapperArray.push($scope.loggedInUserActiveUserQuota - numberOfActiveUsers);
+          $scope.loggedInUserActiveUserLabels = ["My Active Users", "Remaining till Quota"];
+        }
+        if (totalNumberOfActiveUsers.length === $scope.userObjectsArray.length) {
+          console.log("run totalNumberOfActiveUsers.reduce");
+          $scope.salesCenterActiveUsersWrapper = [];
+          $scope.salesCenterActiveUsers = totalNumberOfActiveUsers.reduce(function(a, b) {
+            return a + b;
+          });
+          console.log("$scope.salesCenterActiveUsers", $scope.salesCenterActiveUsers);
+          $scope.salesCenterActiveUsersWrapper.push($scope.salesCenterActiveUsers);
+          $scope.salesCenterActiveUsersWrapper.push($scope.salesCenterActiveUserQuota - $scope.salesCenterActiveUsers);
+        }
         $scope.barLabels.push(userObject.username);
+        $scope.salesCenterActiveUserLabels = ["Total Active Users", "Remaining till Quota"];
       });
     });
     $scope.barDataWrapperArray.push($scope.barData);
+
+
+
+
+
 
     console.log("$scope.allActiveUserEmailAddresses", $scope.allActiveUserEmailAddresses);
 
@@ -57,7 +84,7 @@ app.controller("DashboardCtrl", function($q, $location, $scope, $rootScope, Auth
   //Doughnut Chart - Logged in Sales Rep's Submitted Domains
     console.log("$scope.loggedInUserDomains.length", $scope.loggedInUserDomains.length);
     console.log("$scope.loggedInUserDomains", $scope.loggedInUserDomains);
-    $scope.loggedInUserSubmittedDomainLabels = ["Submitted Domains", "Domains till Quota"];
+    $scope.loggedInUserSubmittedDomainLabels = ["Submitted Domains", "Remaining till Quota"];
     $scope.loggedInUserNumberOfSubmittedDomains = [];
     $scope.submittedDomainsQuota = 20;
     $scope.loggedInUserNumberOfSubmittedDomains.push($scope.loggedInUserDomains.length);
