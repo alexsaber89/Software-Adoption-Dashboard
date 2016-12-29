@@ -76,7 +76,7 @@ app.controller("DashboardCtrl", function($q, $location, $scope, $rootScope, Auth
   //Doughnut Chart - Logged in Sales Rep's Submitted Domains
     console.log("$scope.loggedInUserDomains.length", $scope.loggedInUserDomains.length);
     console.log("$scope.loggedInUserDomains", $scope.loggedInUserDomains);
-    $scope.loggedInUserSubmittedDomainLabels = ["Submitted Domains", "To Quota"];
+    $scope.loggedInUserSubmittedDomainLabels = ["My Submitted Domains", "To Quota"];
     $scope.loggedInUserNumberOfSubmittedDomains = [];
     $scope.submittedDomainsQuota = 20;
     $scope.loggedInUserNumberOfSubmittedDomains.push($scope.loggedInUserDomains.length);
