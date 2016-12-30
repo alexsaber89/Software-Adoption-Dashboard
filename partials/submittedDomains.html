@@ -23,7 +23,7 @@
   <div ng-repeat="domain in submittedDomains" ng-class-odd="'odd'" ng-class-even="'even'">
     <div class="row no-margin-bottom">
       <div class="col s12">
-        <a class="btn-floating btn-md" ng-class="'text-align-center'" ng-click="getMyCtrlScope().showEditInputAndButtons(domain.id)">
+        <a class="btn-floating btn-md blue" ng-class="'text-align-center'" ng-click="getMyCtrlScope().showEditInputAndButtons(domain.id)">
           <i class="large material-icons">mode_edit</i>
         </a>
         <a class="btn-floating btn-md red" ng-click="getMyCtrlScope().deleteDomainThenReloadDomains(domain.id)">
