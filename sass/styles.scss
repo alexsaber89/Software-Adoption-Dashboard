@@ -1,3 +1,23 @@
 h4 {
   text-align: center;
 }
+
+html {
+  overflow-y: scroll;
+}
+
+.odd {
+  background-color: #90A4AE;
+}
+
+.even {
+  background-color: #D3D3D3;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+
+.text-align-center {
+  margin-left: 45%;
+}
