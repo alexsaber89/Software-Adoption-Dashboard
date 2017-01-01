@@ -1,36 +1,37 @@
 <h4>{{user.username}}'s Submitted Domains</h4>
 
-<div class="row">
-  <div class="input-field col s3" ng-show="displayDomainInput">
-    <input id="domainInput" type="text" class="validate" ng-keyup="searchDomains(domainName)" ng-model="domainName" required>
-    <label for="text">Enter Domain Name</label>
+<div class="container">
+  <div class="row">
+    <div class="input-field col s3" ng-show="displayDomainInput">
+      <input id="domainInput" type="text" class="validate" ng-keyup="searchDomains(domainName)" ng-model="domainName" required>
+      <label for="text">Enter Domain Name</label>
+    </div>
+    <div class="input-field col s3" ng-show="displayDomainEditInput">
+      <input id="domainEditInput" type="text" class="validate" ng-keyup="searchDomainsThenEditDomain(domainName)" ng-model="domainName" required>
+      <label for="text">Edit Domain Name</label>
+    </div>
+    <button class="btn waves-effect waves-light blue" type="submit" name="action" ng-show="displayDomainSubmitButton" ng-click="addNewDomain(domainName)">Submit!
+      <i class="material-icons right">send</i>
+    </button>
+    <button class="btn waves-effect waves-light blue" type="submit" name="action" ng-show="displayDomainEditButton" ng-click="editDomainThenReloadDomains(domainName, domain.id)">Edit!
+      <i class="material-icons right">send</i>
+    </button>
+    <button class="btn waves-effect waves-light red" type="submit" name="action" ng-show="displayDomainCancelEditButton" ng-click="cancelDomainEdit()">Cancel
+    </button>
   </div>
-  <div class="input-field col s3" ng-show="displayDomainEditInput">
-    <input id="domainEditInput" type="text" class="validate" ng-keyup="searchDomainsThenEditDomain(domainName)" ng-model="domainName" required>
-    <label for="text">Edit Domain Name</label>
-  </div>
-  <button class="btn waves-effect waves-light" type="submit" name="action" ng-show="displayDomainSubmitButton" ng-click="addNewDomain(domainName)">Submit!
-    <i class="material-icons right">send</i>
-  </button>
-  <button class="btn waves-effect waves-light" type="submit" name="action" ng-show="displayDomainEditButton" ng-click="editDomainThenReloadDomains(domainName, domain.id)">Edit!
-    <i class="material-icons right">send</i>
-  </button>
-  <button class="btn waves-effect waves-light" type="submit" name="action" ng-show="displayDomainCancelEditButton" ng-click="cancelDomainEdit()">Cancel
-  </button>
 </div>
 
-<div class="row">
-  <div ng-repeat="domain in submittedDomains" ng-class-odd="'odd'" ng-class-even="'even'">
-    <div class="row no-margin-bottom">
-      <div class="col s12">
-        <a class="btn-floating btn-md blue" ng-class="'text-align-center'" ng-click="getMyCtrlScope().showEditInputAndButtons(domain.id)">
-          <i class="large material-icons">mode_edit</i>
-        </a>
-        <a class="btn-floating btn-md red" ng-click="getMyCtrlScope().deleteDomainThenReloadDomains(domain.id)">
-          <i class="large material-icons">delete</i>
-        </a>
-        {{domain.domainName}}
-      </div>
+<div class="container">
+  <div class="row no-margin-bottom black-border" ng-repeat="domain in submittedDomains" ng-class-odd="'odd'" ng-class-even="'even'">
+    <div class="col s6">
+      <a class="btn-floating btn-md blue" ng-click="getMyCtrlScope().showEditInputAndButtons(domain.id)">
+        <i class="large material-icons">mode_edit</i>
+      </a>
+      <a class="btn-floating btn-md red" ng-click="getMyCtrlScope().deleteDomainThenReloadDomains(domain.id)">
+        <i class="large material-icons">delete</i>
+      </a>
+      {{domain.domainName}}
     </div>
   </div>
 </div>
+ <!-- ng-class="'center'" -->

@@ -1,56 +1,62 @@
-<a class="waves-effect waves-light blue btn" ng-click="setLoginContainer()">Login</a>
-<a class="waves-effect waves-light blue btn" ng-click="setRegisterContainer()">Register</a>
+<div class="container margin-top">
+  <div class="row">
+    <div class="col s10 offset-s4">
+      <a class="waves-effect waves-light blue btn" ng-click="setLoginContainer()">Login</a>
+      <a class="waves-effect waves-light blue btn" ng-click="setRegisterContainer()">Register</a>
 
-<div ng-show="loginContainer" class="row">
-  <h3>Login</h3>
-  <form class="col s12">
-    <div class="row">
-      <div class="input-field col s3">
-        <input type="email" class="validate" ng-model="login.email" required autofocus>
-        <label for="email">Email</label>
+      <div ng-show="loginContainer" class="row">
+        <h3>Login</h3>
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s3">
+              <input type="email" class="validate" ng-model="login.email" required autofocus>
+              <label for="email">Email</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s3">
+              <input type="password" class="validate" ng-model="login.password" required>
+              <label for="password">Password</label>
+            </div>
+          </div>
+          <!-- <div class="row"> -->
+            <button class="btn waves-effect waves-light blue" type="submit" name="action" ng-click="loginUser(login)">Login
+              <i class="material-icons right">send</i>
+            </button>
+            <button class="btn waves-effect waves-light blue" type="submit" name="action" ng-click="loginGoogleUser(login)">Login with Google
+              <i class="material-icons right">send</i>
+            </button>
+            <!-- <input type="image" id="myimage" class="col s2" src="img/btn_google_signin_light_normal_web.png" ng-click="loginGoogleUser(login)" /> -->
+          <!-- </div> -->
+        </form>
       </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s3">
-        <input type="password" class="validate" ng-model="login.password" required>
-        <label for="password">Password</label>
-      </div>
-    </div>
-    <!-- <div class="row"> -->
-      <button class="btn waves-effect waves-light blue" type="submit" name="action" ng-click="loginUser(login)">Login
-        <i class="material-icons right">send</i>
-      </button>
-      <button class="btn waves-effect waves-light blue" type="submit" name="action" ng-click="loginGoogleUser(login)">Login with Google
-        <i class="material-icons right">send</i>
-      </button>
-      <!-- <input type="image" id="myimage" class="col s2" src="img/btn_google_signin_light_normal_web.png" ng-click="loginGoogleUser(login)" /> -->
-    <!-- </div> -->
-  </form>
-</div>
 
-<div ng-show="registerContainer">
-  <h3>Register</h3>
-  <form class="col s12">
-    <div class="row">
-      <div class="input-field col s3">
-        <input type="email" class="validate" ng-model="registration.email" required>
-        <label for="email">Email</label>
+      <div ng-show="registerContainer">
+        <h3>Register</h3>
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s3">
+              <input type="email" class="validate" ng-model="registration.email" required>
+              <label for="email">Email</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s3">
+              <input type="password" class="validate" ng-model="registration.password" required>
+              <label for="password">Password</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s3">
+              <input type="text" class="validate" ng-model="registration.username" required>
+              <label for="text">User Name</label>
+            </div>
+          </div>
+          <button class="btn waves-effect waves-light blue" type="submit" name="action" ng-click="registerUser(registration)">Register
+            <i class="material-icons right">send</i>
+          </button>
+        </form>
       </div>
     </div>
-    <div class="row">
-      <div class="input-field col s3">
-        <input type="password" class="validate" ng-model="registration.password" required>
-        <label for="password">Password</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s3">
-        <input type="text" class="validate" ng-model="registration.username" required>
-        <label for="text">User Name</label>
-      </div>
-    </div>
-    <button class="btn waves-effect waves-light blue" type="submit" name="action" ng-click="registerUser(registration)">Register
-      <i class="material-icons right">send</i>
-    </button>
-  </form>
+  </div>
 </div>

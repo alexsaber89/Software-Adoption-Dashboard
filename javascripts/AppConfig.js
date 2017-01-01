@@ -20,6 +20,7 @@ app.run(function($rootScope, $location, AuthFactory, FIREBASE_CONFIG) {
 		}
 		if (!appTo && !logged) {
 			event.preventDefault();
+			firebase.auth().signOut();
 			$location.path('/auth');
 		}
 	});
