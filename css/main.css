@@ -5,16 +5,25 @@ html {
   overflow-y: scroll; }
 
 h4 {
-  text-align: center;
+  color: #535d6d;
   font-family: 'Work Sans', sans-serif;
-  font-weight: 550;
-  color: #535d6d; }
+  text-align: center;
+  font-weight: 550; }
 
 /**************
 AUTH VIEW
 **************/
 .margin-top {
   margin-top: 3%; }
+
+/**************
+DASHBOARD VIEW
+**************/
+.doughnut-labels {
+  font-family: 'Work Sans', sans-serif;
+  text-align: center;
+  font-size: 1.3em;
+  color: #535d6d; }
 
 /**************
 MY DOMAINS VIEW

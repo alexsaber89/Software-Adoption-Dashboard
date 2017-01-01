@@ -7,11 +7,12 @@ html {
 }
 
 h4 {
-  text-align: center;
-  font-family: 'Work Sans', sans-serif;
-  font-weight: 550;
   color: #535d6d;
+  font-family: 'Work Sans', sans-serif;
+  text-align: center;
+  font-weight: 550;
 }
+
 
 /**************
 AUTH VIEW
@@ -23,8 +24,20 @@ AUTH VIEW
 
 
 /**************
+DASHBOARD VIEW
+**************/
+
+.doughnut-labels {
+  font-family: 'Work Sans', sans-serif;
+  text-align: center;
+  font-size: 1.3em;
+  color: #535d6d;
+}
+
+/**************
 MY DOMAINS VIEW
 **************/
+
 
 .odd {
   background-color: #90A4AE;
