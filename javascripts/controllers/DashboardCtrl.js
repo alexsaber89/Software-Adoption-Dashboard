@@ -79,12 +79,16 @@ app.controller("DashboardCtrl", function($q, $location, $scope, $rootScope, Auth
     $scope.loggedInUserSubmittedDomainLabels = ["My Submitted Domains", "To Quota"];
     $scope.loggedInUserNumberOfSubmittedDomains = [];
     $scope.submittedDomainsQuota = 20;
-    $scope.loggedInUserNumberOfSubmittedDomains.push($scope.loggedInUserDomains.length);
-    $scope.loggedInUserNumberOfSubmittedDomains.push($scope.submittedDomainsQuota - $scope.loggedInUserDomains.length);
+    if ($scope.loggedInUserDomains.length <= $scope.submittedDomainsQuota) {
+      $scope.loggedInUserNumberOfSubmittedDomains.push($scope.loggedInUserDomains.length);
+      $scope.loggedInUserNumberOfSubmittedDomains.push($scope.submittedDomainsQuota - $scope.loggedInUserDomains.length);
+    } else {
+      $scope.loggedInUserNumberOfSubmittedDomains.push($scope.submittedDomainsQuota);
+    }
 
   //Are these needed?
-    console.log(values);
-    return values;
+    // console.log("VALUES", values);
+    // return values;
   });//end of $q.all.then()
 
   // let getAllActiveUserEmailAddresses = () => {

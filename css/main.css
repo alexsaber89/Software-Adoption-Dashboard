@@ -4,6 +4,9 @@ MASTER CSS
 html {
   overflow-y: scroll; }
 
+.brand-logo {
+  margin-left: 10px; }
+
 h4 {
   color: #535d6d;
   font-family: 'Work Sans', sans-serif;
