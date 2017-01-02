@@ -10,13 +10,13 @@
       <input id="domainEditInput" type="text" class="validate" ng-keyup="searchDomainsThenEditDomain(domainName)" ng-model="domainName" required>
       <label for="text">Edit Domain Name</label>
     </div>
-    <button class="btn waves-effect waves-light blue" type="submit" name="action" ng-show="displayDomainSubmitButton" ng-click="addNewDomain(domainName)">Submit!
+    <button class="btn waves-effect waves-light btn-blue" type="submit" name="action" ng-show="displayDomainSubmitButton" ng-click="addNewDomain(domainName)">Submit!
       <i class="material-icons right">send</i>
     </button>
-    <button class="btn waves-effect waves-light blue" type="submit" name="action" ng-show="displayDomainEditButton" ng-click="editDomainThenReloadDomains(domainName, domain.id)">Edit!
+    <button class="btn waves-effect waves-light btn-blue" type="submit" name="action" ng-show="displayDomainEditButton" ng-click="editDomainThenReloadDomains(domainName, domain.id)">Edit!
       <i class="material-icons right">send</i>
     </button>
-    <button class="btn waves-effect waves-light red" type="submit" name="action" ng-show="displayDomainCancelEditButton" ng-click="cancelDomainEdit()">Cancel
+    <button class="btn waves-effect waves-light btn-red" type="submit" name="action" ng-show="displayDomainCancelEditButton" ng-click="cancelDomainEdit()">Cancel
     </button>
   </div>
 </div>
@@ -24,10 +24,10 @@
 <div class="container">
   <div class="row no-margin-bottom black-border" ng-repeat="domain in submittedDomains" ng-class-odd="'odd'" ng-class-even="'even'">
     <div class="col s6">
-      <a class="btn-floating btn-md blue" ng-click="getMyCtrlScope().showEditInputAndButtons(domain.id)">
+      <a class="btn-floating btn-md btn-blue" ng-click="getMyCtrlScope().showEditInputAndButtons(domain.id)">
         <i class="large material-icons">mode_edit</i>
       </a>
-      <a class="btn-floating btn-md red" ng-click="getMyCtrlScope().deleteDomainThenReloadDomains(domain.id)">
+      <a class="btn-floating btn-md btn-red" ng-click="getMyCtrlScope().deleteDomainThenReloadDomains(domain.id)">
         <i class="large material-icons">delete</i>
       </a>
       {{domain.domainName}}
