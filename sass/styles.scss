@@ -17,6 +17,11 @@ h4 {
   font-weight: 550;
 }
 
+p {
+  display: inline;
+  margin-left: 5%;
+}
+
 .btn-blue {
   background-color: #44687A;
 }
@@ -77,6 +82,10 @@ MY DOMAINS VIEW
 
 .black-border {
   border-top: 1px solid black;
+}
+
+.half-page-width {
+  width: 40%;
 }
 
 /* label focus color */

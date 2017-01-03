@@ -26,7 +26,7 @@ app.controller("SubmittedDomainsCtrl", function($location, $scope, $rootScope, A
       $scope.displayDomainSubmitButton = true;
     }
     for (var i = 0; i < $scope.submittedDomains.length; i++) {
-      if(domainName === $scope.submittedDomains[i].domainName) {
+      if (domainName === $scope.submittedDomains[i].domainName) {
         $scope.displayDomainSubmitButton = false;
         break;
       } else {
@@ -46,7 +46,7 @@ app.controller("SubmittedDomainsCtrl", function($location, $scope, $rootScope, A
 
   $scope.searchDomainsThenEditDomain = (domainName) => {
     for (var i = 0; i < $scope.submittedDomains.length; i++) {
-      if(domainName === $scope.submittedDomains[i].domainName) {
+      if (domainName === $scope.submittedDomains[i].domainName) {
         $scope.displayDomainEditButton = false;
         break;
       } else {
@@ -74,7 +74,6 @@ app.controller("SubmittedDomainsCtrl", function($location, $scope, $rootScope, A
   $scope.showEditInputAndButtons = (editedDomainId) => {
     $scope.domainName = "";
     $scope.domainIdToEdit = "";
-    console.log("editedDomainId: ", editedDomainId);
     $scope.displayDomainInput = false;
     $scope.displayDomainSubmitButton = false;
     $scope.displayDomainEditButton = true;
@@ -85,7 +84,6 @@ app.controller("SubmittedDomainsCtrl", function($location, $scope, $rootScope, A
   };
 
   $scope.cancelDomainEdit = () => {
-    console.log("cancelDomainEdit");
     $scope.displayDomainEditInput = false;
     $scope.displayDomainEditButton = false;
     $scope.displayDomainCancelEditButton = false;
