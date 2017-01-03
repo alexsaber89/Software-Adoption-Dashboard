@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("SubmittedDomainsCtrl", function($location, $scope, $rootScope, AuthFactory, UserFactory, DomainsFactory) {
+app.controller("SubmittedDomainsCtrl", function($scope, $rootScope, DomainsFactory) {
 
   $scope.displayDomainInput = true;
   $scope.displayDomainEditInput = false;

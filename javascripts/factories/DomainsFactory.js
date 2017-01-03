@@ -1,6 +1,6 @@
 "use strict";
 
-app.factory("DomainsFactory", function($q, $http, $rootScope, FIREBASE_CONFIG) {
+app.factory("DomainsFactory", function($q, $http, FIREBASE_CONFIG) {
 
   var getLoggedUserDomains = function(userId){
     return $q((resolve, reject) => {

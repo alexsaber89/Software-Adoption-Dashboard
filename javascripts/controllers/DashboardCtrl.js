@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("DashboardCtrl", function($q, $location, $scope, $rootScope, AuthFactory, UserFactory, DashboardFactory) {
+app.controller("DashboardCtrl", function($q, $scope, $rootScope, DashboardFactory) {
 
   let getAllActiveUserEmailAddressesCallback = function(value) {
     $scope.allActiveUserEmailAddresses = value;
@@ -17,11 +17,13 @@ app.controller("DashboardCtrl", function($q, $location, $scope, $rootScope, Auth
     return value;
   };
 
+  //First, retrieve all software Active Users, Sales Rep email addresses, and currently logged in user's Domains
   $scope.fromThen = $q.all([
     DashboardFactory.getAllActiveUserEmailAddresses().then(getAllActiveUserEmailAddressesCallback),
     DashboardFactory.getUserObjectsArray().then(getUserObjectsArrayCallback),
     DashboardFactory.getLoggedUserDomains($rootScope.user.uid).then(getLoggedUserDomainsCallback)
   ])
+  //Then, use this data to perform final database call and route data to the dashboard graphs/charts
   .then(function(values) {
     $scope.barDataWrapperArray = [];
     $scope.loggedInUserActiveUsersWrapperArray = [];
@@ -30,14 +32,17 @@ app.controller("DashboardCtrl", function($q, $location, $scope, $rootScope, Auth
     $scope.barSeries = ['Active Users'];
     $scope.salesCenterActiveUserQuota = 100;
     $scope.loggedInUserActiveUserQuota = 40;
+    $scope.submittedDomainsQuota = 20;
     let totalNumberOfActiveUsers = [];
+
     $scope.userObjectsArray.forEach(function(userObject) {
-      //Get Submitted Domains for each Registered User
+
       DashboardFactory.getLoggedUserDomains(userObject.uid).then(function(submittedDomains) {
-        let loggedInActiveUserQuota = 60;
+
         let afterAtSign;
         let numberOfActiveUsers = 0;
 
+        //For each Sales Rep's submitted domain name, compare to full list of active users to find matches
         submittedDomains.forEach(function(submittedDomain) {
           $scope.allActiveUserEmailAddresses.forEach(function(activeUserEmail) {
             afterAtSign = activeUserEmail.substr(activeUserEmail.indexOf("@"));
@@ -46,6 +51,7 @@ app.controller("DashboardCtrl", function($q, $location, $scope, $rootScope, Auth
             }
           });
         });
+
         $scope.barData.push(numberOfActiveUsers);
         totalNumberOfActiveUsers.push(numberOfActiveUsers);
         if (userObject.uid === $rootScope.user.uid) {
@@ -65,12 +71,12 @@ app.controller("DashboardCtrl", function($q, $location, $scope, $rootScope, Auth
         $scope.salesCenterActiveUserLabels = ["Total Active Users", "To Quota"];
       });
     });
+
     $scope.barDataWrapperArray.push($scope.barData);
 
   //Doughnut Chart - Logged in Sales Rep's Submitted Domains
-    $scope.loggedInUserSubmittedDomainLabels = ["My Submitted Domains", "To Quota"];
+    $scope.loggedInUserSubmittedDomainLabels = ["My Domains", "To Quota"];
     $scope.loggedInUserNumberOfSubmittedDomains = [];
-    $scope.submittedDomainsQuota = 20;
     if ($scope.loggedInUserDomains.length <= $scope.submittedDomainsQuota) {
       $scope.loggedInUserNumberOfSubmittedDomains.push($scope.loggedInUserDomains.length);
       $scope.loggedInUserNumberOfSubmittedDomains.push($scope.submittedDomainsQuota - $scope.loggedInUserDomains.length);
