@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("NavCtrl", function($scope, $location, AuthFactory) {
+app.controller("NavCtrl", function($scope, $location) {
 
   $scope.showDashboard = () => {
     $location.url('/dashboard');

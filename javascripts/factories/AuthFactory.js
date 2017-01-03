@@ -1,6 +1,6 @@
 "use strict";
 
-app.factory("AuthFactory", function($q, $http, $rootScope, FIREBASE_CONFIG) {
+app.factory("AuthFactory", function($q) {
 
   let currentUserData = null;
 

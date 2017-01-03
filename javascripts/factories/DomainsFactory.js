@@ -1,6 +1,6 @@
 "use strict";
 
-app.factory("DomainsFactory", function($q, $http, $rootScope, FIREBASE_CONFIG) {
+app.factory("DomainsFactory", function($q, $http, FIREBASE_CONFIG) {
 
   var getLoggedUserDomains = function(userId){
     return $q((resolve, reject) => {
@@ -18,24 +18,6 @@ app.factory("DomainsFactory", function($q, $http, $rootScope, FIREBASE_CONFIG) {
        });
     });
   };
-
-  // var getSingleUserDomain = function(domainId){
-  //   return $q((resolve, reject) => {
-  //     $http.get(`${FIREBASE_CONFIG.databaseURL}/submitted_domains/${domainId}.json`)
-  //      .success( (response) => {
-  //        console.log("success response ", response);
-  //       let singleDomain = [];
-  //       Object.keys(response).forEach((key) => {
-  //         response[key].id = key;
-  //         singleDomain.push(response[key]);
-  //       });
-  //       resolve(singleDomain);
-  //      })
-  //      .error( (errorResponse) => {
-  //       reject(errorResponse);
-  //      });
-  //   });
-  // };
 
   var addLoggedUserDomain = function(userId, domainName) {
     return $q((resolve, reject)=>{
