@@ -17,6 +17,8 @@ app.controller("SubmittedDomainsCtrl", function($scope, $rootScope, DomainsFacto
   $scope.loadUserDomains = () => {
     DomainsFactory.getLoggedUserDomains($rootScope.user.uid).then(function(domains) {
       $scope.submittedDomains = domains;
+      $(".copy-footer").remove();
+      $(".submitted-domains").append(`<footer class="copy-footer">&copy Alex Saber 2016</footer>`);
     });
   };
 

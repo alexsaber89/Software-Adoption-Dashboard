@@ -17,6 +17,10 @@ p {
   display: inline;
   margin-left: 5%; }
 
+footer {
+  margin: 20px 0;
+  text-align: center; }
+
 .btn-blue {
   background-color: #44687A; }
 
