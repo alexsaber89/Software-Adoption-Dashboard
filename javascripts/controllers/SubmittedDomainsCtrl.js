@@ -71,7 +71,7 @@ app.controller("SubmittedDomainsCtrl", function($scope, $rootScope, DomainsFacto
 
   $scope.deleteDomainThenReloadDomains = (domainId) => {
     DomainsFactory.deleteLoggedUserDomain(domainId).then(function(deleteResponse) {
-      Materialize.toast('Deleted!', 3000, 'btn-blue');
+      Materialize.toast('Deleted!', 3000, 'btn-red');
       $scope.loadUserDomains();
     });
   };
