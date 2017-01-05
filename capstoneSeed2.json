@@ -1,0 +1,273 @@
+{
+	"submitted_domains":{
+    "domain0":{
+      "domainName":"@bestbuy.com",
+      "uid":"XIXbd8Q1D6OEyc3M1HCAJntP7992"
+    },
+    "domain1":{
+      "domainName":"@radioshack.net",
+      "uid":"8ud4aCgkuCMUCaKIjRV9c5olzcc2"
+    },
+    "domain2":{
+      "domainName":"@wolterskluwer.com",
+      "uid":"XIXbd8Q1D6OEyc3M1HCAJntP7992"
+    },
+    "domain3":{
+      "domainName":"@questlabs.biz",
+      "uid":"XgeyhjgYkMhs6u6TC5QLbHyYPfq1"
+    },
+    "domain4":{
+      "domainName":"@johnspizza.com",
+      "uid":"XIXbd8Q1D6OEyc3M1HCAJntP7992"
+    },
+    "domain5":{
+      "domainName":"@zoeskitchen.com",
+      "uid":"XIXbd8Q1D6OEyc3M1HCAJntP7992"
+    },
+    "domain6":{
+      "domainName":"@day9.tv",
+      "uid":"XIXbd8Q1D6OEyc3M1HCAJntP7992"
+    },
+    "domain7":{
+      "domainName":"@bumc.net",
+      "uid":"XIXbd8Q1D6OEyc3M1HCAJntP7992"
+    },
+    "domain8":{
+      "domainName":"@lever.com",
+      "uid":"XIXbd8Q1D6OEyc3M1HCAJntP7992"
+    },
+    "domain9":{
+      "domainName":"@apl.com",
+      "uid":"XIXbd8Q1D6OEyc3M1HCAJntP7992"
+    },
+    "domain10":{
+      "domainName":"@jimmyjohns.com",
+      "uid":"XIXbd8Q1D6OEyc3M1HCAJntP7992"
+    },
+    "domain11":{
+      "domainName":"@spatafore.net",
+      "uid":"XIXbd8Q1D6OEyc3M1HCAJntP7992"
+    },
+    "domain12":{
+      "domainName":"@balzanorealty.net",
+      "uid":"XIXbd8Q1D6OEyc3M1HCAJntP7992"
+    },
+    "domain13":{
+      "domainName":"@totonnos.com",
+      "uid":"XIXbd8Q1D6OEyc3M1HCAJntP7992"
+    },
+    "domain14":{
+      "domainName":"@destiny.gg",
+      "uid":"XIXbd8Q1D6OEyc3M1HCAJntP7992"
+    },
+    "domain15":{
+      "domainName":"@summit.1g",
+      "uid":"XIXbd8Q1D6OEyc3M1HCAJntP7992"
+    },
+    "domain16":{
+      "domainName":"@bianculo.com",
+      "uid":"XIXbd8Q1D6OEyc3M1HCAJntP7992"
+    },
+    "domain17":{
+      "domainName":"@bassuw.com",
+      "uid":"XIXbd8Q1D6OEyc3M1HCAJntP7992"
+    },
+    "domain18":{
+      "domainName":"@joespizza.com",
+      "uid":"XIXbd8Q1D6OEyc3M1HCAJntP7992"
+    },
+    "domain19":{
+      "domainName":"@bevalaqua.net",
+      "uid":"XIXbd8Q1D6OEyc3M1HCAJntP7992"
+    },
+    "domain20":{
+      "domainName":"@vitos.com",
+      "uid":"XIXbd8Q1D6OEyc3M1HCAJntP7992"
+    },
+    "domain21":{
+      "domainName":"@laspadas.com",
+      "uid":"XIXbd8Q1D6OEyc3M1HCAJntP7992"
+    },
+    "domain22":{
+      "domainName":"@smokeybones.com",
+      "uid":"XIXbd8Q1D6OEyc3M1HCAJntP7992"
+    }
+  },
+	"user_accounts":{
+		"account0":{
+			"email": "john.pace@bestbuy.com"
+		},
+		"account1":{
+			"email": "will.grello@bestbuy.com"
+		},
+		"account2":{
+			"email": "jeff.probst@radioshack.net"
+		},
+		"account3":{
+			"email": "joe.gage@wolterskluwer.com"
+		},
+		"account4":{
+			"email": "paul.vogt@questlabs.biz"
+		},
+		"account5":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account6":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account7":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account8":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account9":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account10":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account11":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account12":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account13":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account14":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account15":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account16":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account17":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account18":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account19":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account20":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account21":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account22":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account23":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account24":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account25":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account26":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account27":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account28":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account29":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account30":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account31":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account32":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account33":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account34":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account35":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account36":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account37":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account38":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account39":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account40":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account41":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account42":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account43":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account44":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account45":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account46":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account47":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account48":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account49":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account50":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account51":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account52":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account53":{
+			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account54":{
+			"email": "jon.voight@wolterskluwer.com"
+		}
+	},
+	"users":{
+		"user0":{
+			"uid":"8ud4aCgkuCMUCaKIjRV9c5olzcc2",
+			"username":"Brad Hall"
+		},
+		"user1":{
+			"uid": "XgeyhjgYkMhs6u6TC5QLbHyYPfq1",
+			"username":"Joe Gage"
+		}
+	}
+}
