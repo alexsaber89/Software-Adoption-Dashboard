@@ -43,7 +43,7 @@ app.controller("SubmittedDomainsCtrl", function($scope, $rootScope, DomainsFacto
       $scope.domainName = "";
       $("#domainInput").focus();
       $scope.displayDomainSubmitButton = false;
-      Materialize.toast('Submitted!', 3000, 'btn-blue');
+      Materialize.toast('Submitted!', 1500, 'btn-blue');
     });
   };
 
@@ -65,13 +65,13 @@ app.controller("SubmittedDomainsCtrl", function($scope, $rootScope, DomainsFacto
       $("#domainInput").focus();
       $scope.displayDomainSubmitButton = false;
       $scope.cancelDomainEdit();
-      Materialize.toast('Edited!', 3000, 'btn-blue');
+      Materialize.toast('Edited!', 1500, 'btn-blue');
     });
   };
 
   $scope.deleteDomainThenReloadDomains = (domainId) => {
     DomainsFactory.deleteLoggedUserDomain(domainId).then(function(deleteResponse) {
-      Materialize.toast('Deleted!', 3000, 'btn-red');
+      Materialize.toast('Deleted!', 1500, 'btn-red');
       $scope.loadUserDomains();
     });
   };
