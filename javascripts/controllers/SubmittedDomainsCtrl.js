@@ -65,7 +65,7 @@ app.controller("SubmittedDomainsCtrl", function($scope, $rootScope, DomainsFacto
       $("#domainInput").focus();
       $scope.displayDomainSubmitButton = false;
       $scope.cancelDomainEdit();
-      Materialize.toast('Edited!', 1500, 'btn-blue');
+      Materialize.toast('Saved!', 1500, 'btn-blue');
     });
   };
 
