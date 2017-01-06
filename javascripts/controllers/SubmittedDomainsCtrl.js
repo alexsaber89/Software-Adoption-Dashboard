@@ -38,13 +38,17 @@ app.controller("SubmittedDomainsCtrl", function($scope, $rootScope, DomainsFacto
   };
 
   $scope.addNewDomain = (newDomain) => {
-    DomainsFactory.addLoggedUserDomain($rootScope.user.uid, newDomain).then(function(addResponse) {
-      $scope.loadUserDomains();
-      $scope.domainName = "";
-      $("#domainInput").focus();
-      $scope.displayDomainSubmitButton = false;
-      Materialize.toast('Submitted!', 1500, 'btn-blue');
-    });
+    if (newDomain) {
+      DomainsFactory.addLoggedUserDomain($rootScope.user.uid, newDomain).then(function(addResponse) {
+        $scope.loadUserDomains();
+        $scope.domainName = "";
+        $("#domainInput").focus();
+        $scope.displayDomainSubmitButton = false;
+        Materialize.toast('Submitted!', 1500, 'btn-blue');
+      });
+    } else {
+      Materialize.toast('Invalid Domain!', 1500, 'btn-red');
+    }
   };
 
   $scope.searchDomainsThenEditDomain = (domainName) => {
@@ -59,14 +63,18 @@ app.controller("SubmittedDomainsCtrl", function($scope, $rootScope, DomainsFacto
   };
 
   $scope.editDomainThenReloadDomains = (editedDomainName) => {
-    DomainsFactory.editLoggedUserDomain($scope.domainIdToEdit, $rootScope.user.uid, editedDomainName).then(function(editedResponse) {
-      $scope.loadUserDomains();
-      $scope.domainName = "";
-      $("#domainInput").focus();
-      $scope.displayDomainSubmitButton = false;
-      $scope.cancelDomainEdit();
-      Materialize.toast('Saved!', 1500, 'btn-blue');
-    });
+    if (editedDomainName) {
+      DomainsFactory.editLoggedUserDomain($scope.domainIdToEdit, $rootScope.user.uid, editedDomainName).then(function(editedResponse) {
+        $scope.loadUserDomains();
+        $scope.domainName = "";
+        $("#domainInput").focus();
+        $scope.displayDomainSubmitButton = false;
+        $scope.cancelDomainEdit();
+        Materialize.toast('Saved!', 1500, 'btn-blue');
+      });
+    } else {
+      Materialize.toast('Invalid Domain!', 1500, 'btn-red');
+    }
   };
 
   $scope.deleteDomainThenReloadDomains = (domainId) => {
