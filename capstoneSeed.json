@@ -43,16 +43,25 @@
 		},
 		"account5":{
 			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account6":{
+			"email": "jon.sheets@radioshack.net"
+		},
+		"account7":{
+			"email": "fred.street@wolterskluwer.com"
+		},
+		"account8":{
+			"email": "jon.voight@radioshack.net"
 		}
 	},
 	"users":{
 		"user0":{
 			"uid":"8ud4aCgkuCMUCaKIjRV9c5olzcc2",
-			"username":"Brad"
+			"username":"Brad Hall"
 		},
 		"user1":{
 			"uid": "XgeyhjgYkMhs6u6TC5QLbHyYPfq1",
-			"username":"Al"
+			"username":"Joe Gage"
 		}
 	}
 }

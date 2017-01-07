@@ -55,17 +55,26 @@ app.controller("DashboardCtrl", function($q, $scope, $rootScope, DashboardFactor
         $scope.barData.push(numberOfActiveUsers);
         totalNumberOfActiveUsers.push(numberOfActiveUsers);
         if (userObject.uid === $rootScope.user.uid) {
-          $scope.loggedInUserActiveUsersWrapperArray.push(numberOfActiveUsers);
-          $scope.loggedInUserActiveUsersWrapperArray.push($scope.loggedInUserActiveUserQuota - numberOfActiveUsers);
+          if (numberOfActiveUsers <= $scope.loggedInUserActiveUserQuota) {
+            $scope.loggedInUserActiveUsersWrapperArray.push(numberOfActiveUsers);
+            $scope.loggedInUserActiveUsersWrapperArray.push($scope.loggedInUserActiveUserQuota - numberOfActiveUsers);
+            $scope.loggedInUserActiveUserLabels = ["My Active Users", "Needed"];
+          } else {
+          $scope.loggedInUserActiveUsersWrapperArray.push($scope.loggedInUserActiveUserQuota);
           $scope.loggedInUserActiveUserLabels = ["My Active Users", "Needed"];
         }
+      }
         if (totalNumberOfActiveUsers.length === $scope.userObjectsArray.length) {
           $scope.salesCenterActiveUsersWrapper = [];
           $scope.salesCenterActiveUsers = totalNumberOfActiveUsers.reduce(function(a, b) {
             return a + b;
           });
-          $scope.salesCenterActiveUsersWrapper.push($scope.salesCenterActiveUsers);
-          $scope.salesCenterActiveUsersWrapper.push($scope.salesCenterActiveUserQuota - $scope.salesCenterActiveUsers);
+          if ($scope.salesCenterActiveUsers <= $scope.salesCenterActiveUserQuota) {
+            $scope.salesCenterActiveUsersWrapper.push($scope.salesCenterActiveUsers);
+            $scope.salesCenterActiveUsersWrapper.push($scope.salesCenterActiveUserQuota - $scope.salesCenterActiveUsers);
+          } else {
+            $scope.salesCenterActiveUsersWrapper.push($scope.salesCenterActiveUserQuota);
+          }
         }
         $scope.barLabels.push(userObject.username);
         $scope.salesCenterActiveUserLabels = ["Total Active Users", "Needed"];
