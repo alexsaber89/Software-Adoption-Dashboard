@@ -43,6 +43,15 @@
 		},
 		"account5":{
 			"email": "jon.voight@wolterskluwer.com"
+		},
+		"account6":{
+			"email": "jon.sheets@radioshack.net"
+		},
+		"account7":{
+			"email": "fred.street@wolterskluwer.com"
+		},
+		"account8":{
+			"email": "jon.voight@radioshack.net"
 		}
 	},
 	"users":{
