@@ -77,7 +77,7 @@ app.controller("DashboardCtrl", function($q, $scope, $rootScope, DashboardFactor
           }
         }
         $scope.barLabels.push(userObject.username);
-        $scope.salesCenterActiveUserLabels = ["Total Active Users", "Needed"];
+        $scope.salesCenterActiveUserLabels = ["All Active Users", "Needed"];
       });
     });
 

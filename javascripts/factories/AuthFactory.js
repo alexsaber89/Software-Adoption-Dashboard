@@ -4,22 +4,18 @@ app.factory("AuthFactory", function($q) {
 
   let currentUserData = null;
 
-//Firebase: Determine if user is authenticated.
   let isAuthenticated = () => {
       return firebase.auth().currentUser ? true : false;
   };
 
-//Firebase: Return email, UID for user that is currently logged in.
   let getUser = () => {
     return firebase.auth().currentUser;
   };
 
-// Kills browser cookie with firebase credentials
   let logout = () => {
     firebase.auth().signOut();
   };
 
-//Firebase: Use input credentials to authenticate user.
   let authenticate = (credentials) => {
     return $q((resolve, reject) => {
       firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.password)
@@ -32,7 +28,6 @@ app.factory("AuthFactory", function($q) {
     });
   };
 
-//Firebase: Register a new user with email and password
   let registerWithEmail = (user) => {
     return $q((resolve, reject) => {
       firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
@@ -45,7 +40,6 @@ app.factory("AuthFactory", function($q) {
     });
   };
 
-//Firebase: GOOGLE - Use input credentials to authenticate user.
   let authenticateGoogle = () => {
     return $q((resolve, reject) => {
       var provider = new firebase.auth.GoogleAuthProvider();
