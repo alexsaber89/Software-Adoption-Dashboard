@@ -4,24 +4,14 @@ app.controller("AuthCtrl", function($location, $scope, $rootScope, AuthFactory, 
 
 	$scope.loginContainer = true;
 	$scope.registerContainer = false;
+	
+	$scope.logMeIn = logMeIn;
+	$scope.loginGoogleUser = loginGoogleUser;
+	$scope.registerUser = registerUser;
+	$scope.setLoginContainer = setLoginContainer;
+	$scope.setRegisterContainer = setRegisterContainer;
 
-	if ($location.path() === "/logout") {
-		AuthFactory.logout();
-		$rootScope.user = {};
-		$location.url("/");
-	}
-
-	$scope.setLoginContainer = function() {
-		$scope.loginContainer = true;
-		$scope.registerContainer = false;
-	};
-
-	$scope.setRegisterContainer = function() {
-		$scope.loginContainer = false;
-		$scope.registerContainer = true;
-	};
-
-	let logMeIn = (userLoginInfo) => {
+	function logMeIn(userLoginInfo) {
 		AuthFactory.authenticate(userLoginInfo).then((loginResponse) => {
 			return UserFactory.getUser(loginResponse.uid);
 		}).then((userCreds) => {
@@ -32,7 +22,7 @@ app.controller("AuthCtrl", function($location, $scope, $rootScope, AuthFactory, 
 		});
 	};
 
-	$scope.loginGoogleUser = () => {
+	function loginGoogleUser() {
 		AuthFactory.authenticateGoogle().then((googleResponse) => {
 			$rootScope.user = {
 				uid: googleResponse.uid,
@@ -59,7 +49,7 @@ app.controller("AuthCtrl", function($location, $scope, $rootScope, AuthFactory, 
 		});
 	};
 
-	$scope.registerUser = function(registerNewUser) {
+	function registerUser(registerNewUser) {
 		AuthFactory.registerWithEmail(registerNewUser).then((registerResponse) => {
 			registerNewUser.uid = registerResponse.uid;
 			return UserFactory.addUser(registerNewUser);
@@ -68,7 +58,14 @@ app.controller("AuthCtrl", function($location, $scope, $rootScope, AuthFactory, 
 		});
 	};
 
-	$scope.loginUser = function(userLoginInfo) {
-		logMeIn(userLoginInfo);
+	function setLoginContainer() {
+		$scope.loginContainer = true;
+		$scope.registerContainer = false;
 	};
+
+	function setRegisterContainer() {
+		$scope.loginContainer = false;
+		$scope.registerContainer = true;
+	};
+	
 });

@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("NavCtrl", function($scope, $location) {
+app.controller("NavCtrl", function($scope, $rootScope, $location, AuthFactory) {
 
   $scope.showDashboard = () => {
     $location.url('/dashboard');
@@ -11,6 +11,8 @@ app.controller("NavCtrl", function($scope, $location) {
   };
 
   $scope.logout = () => {
+    AuthFactory.logout();
+ 		$rootScope.user = {};
     $location.url('/logout');
   };
 
